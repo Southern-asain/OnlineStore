@@ -3,13 +3,13 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
     private static int itemCount = 0;
-    private int itemNum;
+    private int SKU;
     private String name;
     private double width,height,length, weight, price;
 
     public Item(String name, double height, double width, double length, double weight ){
         itemCount++;
-        itemNum = itemCount;
+        SKU = itemCount;
         this.name = name;
         this.height = height;
         this.width = width;
@@ -20,7 +20,7 @@ public class Item implements Serializable {
 
     public Item(String name, double height, double width, double length, double weight, double price ){
         itemCount++;
-        itemNum = itemCount;
+        SKU = itemCount;
         this.name = name;
         this.height = height;
         this.width = width;
@@ -78,6 +78,6 @@ public class Item implements Serializable {
     }
 
     public String toString(){
-        return itemNum+" "+name+" "+price;
+        return SKU +" "+name+" "+price;
     }
 }

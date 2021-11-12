@@ -10,11 +10,4 @@ public class Perishable extends Item implements Serializable {
         this.daysLeft = daysLeft;
     }
 
-    @Override
-    public String toString() {
-        return "Perishable{" +
-                "daysLeft=" + daysLeft +
-                ", donatable=" + donatable +
-                '}';
-    }
 }

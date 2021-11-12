@@ -1,33 +1,42 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Customer {
-
-    private String user, password, email, name, address;
-    private int Ccard;
+    private String username, password, name, address;
     private ArrayList<Integer> pastOrders;
     private LocalDate dob;
-    private double distance;
+    private int distance;
 
-    public Customer(String user, String password, String email, String name, String address, int ccard, ArrayList<Integer> pastOrders, LocalDate dob, double distance) {
-        this.user = user;
+    public Customer(String username, String password, String name, String address, LocalDate dob) {
+        this.username = username;
         this.password = password;
-        this.email = email;
         this.name = name;
         this.address = address;
-        Ccard = ccard;
-        this.pastOrders = pastOrders;
         this.dob = dob;
+        pastOrders = new ArrayList<>();
+        distance = getDistance(address);
+    }
+
+    public Customer(String username, String password, String name, String address, LocalDate dob,ArrayList<Integer> past, int distance) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.dob = dob;
+        pastOrders = past;
         this.distance = distance;
     }
 
-    public String getUser() {
-        return user;
+    public void addOrder(Integer o){
+        pastOrders.add(o);
+    }
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -36,14 +45,6 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -62,35 +63,22 @@ public class Customer {
         this.address = address;
     }
 
-    public int getCcard() {
-        return Ccard;
-    }
-
-    public void setCcard(int ccard) {
-        Ccard = ccard;
-    }
-
     public ArrayList<Integer> getPastOrders() {
         return pastOrders;
-    }
-
-    public void setPastOrders(ArrayList<Integer> pastOrders) {
-        this.pastOrders = pastOrders;
     }
 
     public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    private int getDistance(String address) {
+        return 0;
     }
 
-    public double getDistance() {
-        return distance;
+    public int getDistance(){
+        return (int)distance;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
+
+
 }

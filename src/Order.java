@@ -7,17 +7,19 @@ public class Order {
     private Item[] items;
     private int invoice;
     private double total, tax, shippingCost;
-    private Shipment shipment;
 
-    public Order(LocalDate orderDate, Customer customer, Item[] items, int invoice, double total, double tax, double shippingCost, Shipment shipment) {
-        this.orderDate = orderDate;
+    public enum Carrier{
+        Ups,UPS,FEDEX
+    }
+
+    public enum Box{
+        SMALL,MEDIUM,LARGE,SMALL_NARROW,MEDIUM_MEDIUM,LARGE_NARROW,PERISHABLE
+    }
+
+    public Order(Customer customer, Item[] items) {
         this.customer = customer;
         this.items = items;
-        this.invoice = invoice;
-        this.total = total;
-        this.tax = tax;
-        this.shippingCost = shippingCost;
-        this.shipment = shipment;
+        orderDate = LocalDate.now();
     }
 
     public LocalDate getOrderDate() {
@@ -28,14 +30,6 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public Item[] getItems() {
         return items;
     }
@@ -44,43 +38,7 @@ public class Order {
         this.items = items;
     }
 
-    public int getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(int invoice) {
-        this.invoice = invoice;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public double getTax() {
-        return tax;
-    }
-
-    public void setTax(double tax) {
-        this.tax = tax;
-    }
-
-    public double getShippingCost() {
-        return shippingCost;
-    }
-
-    public void setShippingCost(double shippingCost) {
-        this.shippingCost = shippingCost;
-    }
-
-    public Shipment getShipment() {
-        return shipment;
-    }
-
-    public void setShipment(Shipment shipment) {
-        this.shipment = shipment;
+    public Customer getCustomer(){
+        return customer;
     }
 }

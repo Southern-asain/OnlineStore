@@ -1,32 +1,40 @@
-import java.io.Serializable;
 
-public class Item implements Serializable {
+public class Item{
 
     private static int itemCount = 0;
-    private int SKU;
+    private int sku;
     private String name;
-    private double width,height,length,weight, price;
+    private double width;
+    private double height;
+    private double length;
+    private double price;
 
-    public Item(String name, double height, double width, double length, double weight ){
+    public Item(String name, double height, double width, double length){
         itemCount++;
-        SKU = itemCount;
+        sku = itemCount;
         this.name = name;
         this.height = height;
         this.width = width;
         this.length = length;
-        this.weight = weight;
         price = -1;
     }
 
-    public Item(String name, double height, double width, double length, double weight, double price ){
+    public Item(String name, double height, double width, double length, double price){
         itemCount++;
-        SKU = itemCount;
+        sku = itemCount;
         this.name = name;
         this.height = height;
         this.width = width;
         this.length = length;
-        this.weight = weight;
         this.price = price;
+    }
+
+    public int getSku() {
+        return sku;
+    }
+
+    public void setSku(int sku) {
+        this.sku = sku;
     }
 
     public String getName() {
@@ -61,14 +69,6 @@ public class Item implements Serializable {
         this.length = length;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -78,6 +78,6 @@ public class Item implements Serializable {
     }
 
     public String toString(){
-        return SKU +" "+name+" "+price;
+        return sku +" "+name+" "+price;
     }
 }

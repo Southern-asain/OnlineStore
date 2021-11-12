@@ -5,7 +5,7 @@ public class Perishable extends Item implements Serializable {
     private boolean donatable;
 
     public Perishable(String name, double height, double width, double length, double weight, double price, int daysLeft){
-        super(name, height, width, length, weight, price);
+        super(name, height, width, length, price);
         donatable =true;
         this.daysLeft = daysLeft;
     }

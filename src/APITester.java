@@ -2,9 +2,7 @@
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
-import java.util.Scanner;
 import org.json.JSONObject;
-import org.json.JSONArray;
 
 public class APITester {
 
@@ -19,10 +17,7 @@ public class APITester {
             bob.append(rd.next());
         }
         JSONObject obj = new JSONObject(bob.toString());
-        obj = (JSONObject)((JSONArray) obj.get("route")).get(0);
-        obj = (JSONObject)((JSONArray) obj.get("legs")).get(0);
-        Integer distance = (Integer)((JSONObject)obj.get("distance")).get("value");
-        System.out.println(distance);
+        int distance = ((JSONObject)obj.query("/routes/0/legs/0/distance")).getInt("value");
 
     }
 }

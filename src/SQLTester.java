@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SQTester {
+public class SQLTester {
     public static void main(String[] args) {
         Connection con = null;
         try{

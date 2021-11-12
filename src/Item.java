@@ -5,7 +5,7 @@ public class Item implements Serializable {
     private static int itemCount = 0;
     private int SKU;
     private String name;
-    private double width,height,length, weight, price;
+    private double width,height,length,weight, price;
 
     public Item(String name, double height, double width, double length, double weight ){
         itemCount++;

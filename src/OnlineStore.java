@@ -15,7 +15,6 @@ public class OnlineStore {
             mon.nextLine();
             switch (n) {
                 case 1:
-                    ViewItem();
                     break;
             }
         }

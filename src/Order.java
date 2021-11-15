@@ -9,11 +9,31 @@ public class Order {
     private double total, tax, shippingCost;
 
     public enum Carrier{
-        Ups,UPS,FEDEX
-    }
+        USPS (2,0.025),UPS(6,0.05),FEDEX(6.25,0.08);
 
+        private final double flatRate;
+        private final double perKm;
+        Carrier(double flatRate, double perKm){
+            this.flatRate = flatRate;
+            this.perKm = perKm;
+        }
+
+        public double calculateShipping(double distance){
+            return flatRate+distance*perKm;
+        }
+    }
     public enum Box{
-        SMALL,MEDIUM,LARGE,SMALL_NARROW,MEDIUM_MEDIUM,LARGE_NARROW,PERISHABLE
+        SMALL (10),
+        MEDIUM (20),
+        LARGE (30),
+        PERISHABLE (20);
+
+        private final double volume;
+
+        Box(double volume){
+            this.volume =volume;
+        }
+        public double getVolume(){return volume;}
     }
 
     public Order(Customer customer, Item[] items) {

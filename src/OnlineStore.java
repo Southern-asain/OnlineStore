@@ -15,6 +15,7 @@ public class OnlineStore {
             mon.nextLine();
             switch (n) {
                 case 1:
+                    loadInventory();
                     break;
                 case 2:
                     AccessCart();

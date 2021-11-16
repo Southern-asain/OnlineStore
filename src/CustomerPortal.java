@@ -113,6 +113,7 @@ public class CustomerPortal {
         }
     }
 
+
     private static void printMenu() {
         System.out.println("1. Sign up");
         System.out.println("2. Sign in");
@@ -146,8 +147,4 @@ public class CustomerPortal {
         return null;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

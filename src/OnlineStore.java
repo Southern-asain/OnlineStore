@@ -23,12 +23,10 @@ public class OnlineStore {
 
     public static void printMainMenu() {
         System.out.println("1. View Items");
-        System.out.println("2. Add Items to cart");
-        System.out.println("3. View cart");
-        System.out.println("4. Sign in");
-        System.out.println("5. Order");
-        System.out.println("6. View Past orders");
-        System.out.println("7. Account");
+        System.out.println("2. Cart");
+        System.out.println("3. Account");
+        System.out.println("4. ....");
+
 
     }
 

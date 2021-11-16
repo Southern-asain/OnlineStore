@@ -16,6 +16,13 @@ public class OnlineStore {
             switch (n) {
                 case 1:
                     break;
+                case 2:
+                    AccessCart();
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
             }
         }
 
@@ -26,6 +33,12 @@ public class OnlineStore {
         System.out.println("2. Cart");
         System.out.println("3. Account");
         System.out.println("4. ....");
+
+
+    }
+
+    public static void AccessCart(){
+
 
 
     }

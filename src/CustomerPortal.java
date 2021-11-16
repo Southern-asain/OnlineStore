@@ -146,5 +146,8 @@ public class CustomerPortal {
         return null;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

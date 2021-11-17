@@ -1,10 +1,12 @@
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OnlineStore {
     private static ArrayList<Item> inventory;
+    private static ArrayList<Order> Cart;
 
     public static void main(String[] args) {
         Scanner mon = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class OnlineStore {
                     loadInventory();
                     break;
                 case 2:
-                    AccessCart();
+                    Cart();
                     break;
                 case 3:
                     break;
@@ -38,9 +40,18 @@ public class OnlineStore {
 
     }
 
-    public static void AccessCart(){
-
-
+    public void Cart(){
+        try {
+            ResultSet set = short.executeOrders("Select * from int");
+            FileInputStream fis = new FileInputStream("file");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Cart = (ArrayList<Order>) ois.readObject();
+            System.out.println("Cart: " + Cart.size() + " Items loaded");
+            ois.close();
+        } catch (Exception e) {
+            System.out.println("Nothing in cart");
+            Cart = new ArrayList<>();
+        }
 
     }
 

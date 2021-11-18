@@ -42,7 +42,6 @@ public class OnlineStore {
 
     public void Cart(){
         try {
-            ResultSet set = short.executeOrders("Select * from int");
             FileInputStream fis = new FileInputStream("file");
             ObjectInputStream ois = new ObjectInputStream(fis);
             Cart = (ArrayList<Order>) ois.readObject();

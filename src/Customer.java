@@ -1,10 +1,14 @@
-import java.time.LocalDate;
-import java.util.ArrayList;
+import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Customer {
     private String username, password, name, address;
-    private ArrayList<Integer> pastOrders;
     private LocalDate dob;
     private int distance;
 
@@ -14,23 +18,19 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.dob = dob;
-        pastOrders = new ArrayList<>();
         distance = getDistance(address);
     }
 
-    public Customer(String username, String password, String name, String address, LocalDate dob,ArrayList<Integer> past, int distance) {
+    public Customer(String username, String password, String name, String address, LocalDate dob, int distance) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.address = address;
         this.dob = dob;
-        pastOrders = past;
         this.distance = distance;
     }
 
-    public void addOrder(Integer o){
-        pastOrders.add(o);
-    }
+
     public String getUsername() {
         return username;
     }
@@ -63,16 +63,37 @@ public class Customer {
         this.address = address;
     }
 
-    public ArrayList<Integer> getPastOrders() {
-        return pastOrders;
-    }
 
     public LocalDate getDob() {
         return dob;
     }
 
     private int getDistance(String address) {
-        return 0;
+        String apiKey = "";
+        int distance = 0;
+        try{
+            Scanner mon = new Scanner(new File("apikey"));
+            apiKey = mon.nextLine();
+            mon.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    String destin = "42202+FM+1774+Magnolia+TX+77354";
+    try{
+        URL mapsAPI = new URL("https://maps.googleapis.com/maps/api/directions/json?origin" + Order.ORIGIN + "&destin"+ destin + "&units=metric&key=" + apiKey);
+        URLConnection con = mapsAPI.openConnection();
+        Scanner mon = new Scanner(con.getInputStream());
+
+    StringBuilder bob = new StringBuilder();
+    while(mon.hasNext()){
+        bob.append(mon.next());
+    }
+
+        JSONObject obj = new JSONObject(bob.toString());
+    distance = ((JSONObject))
     }
 
     public int getDistance(){

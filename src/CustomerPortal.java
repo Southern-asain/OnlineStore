@@ -136,7 +136,7 @@ public class CustomerPortal {
                 }
             }
             int dist = set.getInt(7);
-            customer = new Customer(username,pass,name,address,dob,past,dist);
+            customer = new Customer(username,pass,name,address,dob,dist);
         }catch(SQLException e){
             System.out.println(e);
         }

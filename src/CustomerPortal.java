@@ -4,14 +4,16 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class CustomerPortal {
-    private static Statement stmt;
+    private static Statement stmt,stmt2;
     private static Scanner  sc;
     private static Customer customer;
 
     public static void main(String[] args) {
         stmt = new DBInterface("database.db").getStatement();
+        stmt2 = new DBInterface("datebase.db").getStatement();
         sc = new Scanner(System.in);
 
         int n = -1;

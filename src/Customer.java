@@ -1,5 +1,4 @@
 import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -78,22 +77,27 @@ public class Customer {
         }catch (IOException e){
             e.printStackTrace();
         }
-    }
+
 
 
     String destin = "42202+FM+1774+Magnolia+TX+77354";
-    try{
-        URL mapsAPI = new URL("https://maps.googleapis.com/maps/api/directions/json?origin" + Order.ORIGIN + "&destin"+ destin + "&units=metric&key=" + apiKey);
+    try
+
+    {
+        URL mapsAPI = new URL("https://maps.googleapis.com/maps/api/directions/json?origin" + "&destin" + destin + "&units=metric&key=" + apiKey);
         URLConnection con = mapsAPI.openConnection();
         Scanner mon = new Scanner(con.getInputStream());
 
-    StringBuilder bob = new StringBuilder();
-    while(mon.hasNext()){
-        bob.append(mon.next());
-    }
+        StringBuilder dumb = new StringBuilder();
+        while (mon.hasNext()) {
+            dumb.append(mon.next());
+        }
 
-        JSONObject obj = new JSONObject(bob.toString());
-    distance = ((JSONObject))
+        JSONObject obj = new JSONObject(dumb.toString());
+        distance = ((JSONObject) obj.query("/routes/0/legs/distance")).getInt("value");
+    }catch(Exception e){
+        e.printStackTrace();}
+        return distance;
     }
 
     public int getDistance(){

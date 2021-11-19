@@ -29,11 +29,11 @@ public class Item{
         this.price = price;
     }
 
-    public int getSku() {
+    public int getsku() {
         return sku;
     }
 
-    public void setSku(int sku) {
+    public void setsku(int sku) {
         this.sku = sku;
     }
 

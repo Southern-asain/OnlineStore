@@ -84,7 +84,7 @@ public class Customer {
     try
 
     {
-        URL mapsAPI = new URL("https://maps.googleapis.com/maps/api/directions/json?origin" + "&destin" + destin + "&units=metric&key=" + apiKey);
+        URL mapsAPI = new URL("https://maps.googleapis.com/maps/api/directions/json?origin" + Order.ORIGIN + "&destin" + destin + "&units=metric&key=" + apiKey);
         URLConnection con = mapsAPI.openConnection();
         Scanner mon = new Scanner(con.getInputStream());
 
